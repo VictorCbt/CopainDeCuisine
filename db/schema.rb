@@ -10,10 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_135952) do
+ActiveRecord::Schema.define(version: 2020_04_20_153151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ingredients", force: :cascade do |t|
+    t.bigint "recette_id", null: false
+    t.text "nom"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recette_id"], name: "index_ingredients_on_recette_id"
+  end
+
+  create_table "quantites", force: :cascade do |t|
+    t.integer "nombre"
+    t.text "unite"
+    t.bigint "ingredient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ingredient_id"], name: "index_quantites_on_ingredient_id"
+  end
+
+  create_table "recettes", force: :cascade do |t|
+    t.text "titre"
+    t.text "description"
+    t.text "variante"
+    t.text "type"
+    t.text "univers"
+    t.text "astuce"
+    t.text "lienUrl"
+    t.text "commentaire"
+    t.integer "duree"
+    t.integer "difficulte"
+    t.integer "cuisson"
+    t.integer "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "note"
+    t.text "commentaire"
+    t.bigint "recette_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recette_id"], name: "index_reviews_on_recette_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +72,20 @@ ActiveRecord::Schema.define(version: 2020_04_20_135952) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "whishlists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "recette_id", null: false
+    t.boolean "statut"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recette_id"], name: "index_whishlists_on_recette_id"
+    t.index ["user_id"], name: "index_whishlists_on_user_id"
+  end
+
+  add_foreign_key "ingredients", "recettes"
+  add_foreign_key "quantites", "ingredients"
+  add_foreign_key "reviews", "recettes"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "whishlists", "recettes"
+  add_foreign_key "whishlists", "users"
 end

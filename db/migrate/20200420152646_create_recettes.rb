@@ -9,6 +9,7 @@ class CreateRecettes < ActiveRecord::Migration[6.0]
       t.text :astuce
       t.text :lienUrl
       t.text :commentaire
+      t.text :etiquette
       t.integer :duree
       t.integer :difficulte
       t.integer :cuisson

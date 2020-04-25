@@ -6,7 +6,7 @@ class Recette < ApplicationRecord
 
   validates :titre, presence: true, uniqueness: true
   validates :description, presence: true
-  validates :type, inclusion: { in: %w(Entrée Plat Dessert)}
+  validates :typeplat, presence: true
   validates :univers, presence: true
 
 

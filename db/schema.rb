@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_181911) do
+ActiveRecord::Schema.define(version: 2020_04_25_075612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_181911) do
     t.text "titre"
     t.text "description"
     t.text "variante"
-    t.text "type"
+    t.text "typeplat"
     t.text "univers"
     t.text "astuce"
     t.text "lienUrl"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2020_04_24_181911) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "etiquette"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_recettes_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -85,6 +87,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_181911) do
 
   add_foreign_key "ingredients", "recettes"
   add_foreign_key "quantites", "ingredients"
+  add_foreign_key "recettes", "users"
   add_foreign_key "reviews", "recettes"
   add_foreign_key "reviews", "users"
   add_foreign_key "whishlists", "recettes"

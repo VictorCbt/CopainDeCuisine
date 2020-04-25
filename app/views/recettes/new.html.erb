@@ -20,6 +20,7 @@
         <%= f.input :cuisson, label: 'Durée de la cuisson en minutes (si cuisson il y a)' %>
         <%= f.input :note, label: 'Note attribuée à la recette. 5 étoiles ou rien ! on est pas chez Macdo', collection: ["1", "2", "3", "4", "5"] %>
         <%= f.input :difficulte, label: 'Difficulté de la recette', collection: ["1", "2", "3", "4", "5"] %>
+        <%= f.input :photo, as: :file %>
         <%= f.button :submit, "Valider", class: 'btn btn-primary' %>
 
       <% end %>

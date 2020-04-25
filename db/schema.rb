@@ -62,13 +62,13 @@ ActiveRecord::Schema.define(version: 2020_04_25_152310) do
     t.text "astuce"
     t.text "lienUrl"
     t.text "commentaire"
+    t.text "etiquette"
     t.integer "duree"
     t.integer "difficulte"
     t.integer "cuisson"
     t.integer "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "etiquette"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_recettes_on_user_id"
   end

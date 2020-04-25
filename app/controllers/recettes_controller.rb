@@ -13,6 +13,7 @@ class RecettesController < ApplicationController
   end
 
   def show
+    @recette = Recette.find(params[:id])
   end
 
   def index
@@ -31,7 +32,7 @@ class RecettesController < ApplicationController
   private
 
   def recettes_strong_params
-    params.require(:recette).permit(:titre, :description, :lienUrl, :variante, :astuce, :univers, :typeplat, :commentaire, :etiquette, :duree, :cuisson, :note, :difficulte )
+    params.require(:recette).permit(:titre, :description, :lienUrl, :variante, :astuce, :univers, :typeplat, :photo, :commentaire, :duree, :cuisson, :note, :difficulte )
   end
 
 end

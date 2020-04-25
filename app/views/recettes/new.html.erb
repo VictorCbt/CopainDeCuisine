@@ -14,12 +14,12 @@
         <%= f.input :univers, label: 'Healthy, épicé, vegan, viande, plat convivial, dessert, gateau, pain ..', collection: ["Convivial","Dessert", "Gâteau", "Epicé", "Healthy", "Pain", "Patte", "Pizza", "Sauce", "Vegan", "Viande"], multiple: true %>
         <%= f.input :typeplat, label: 'Entrée, plat ou dessert', collection: ["Entrée", "Plat", "Dessert"] %>
         <%= f.input :commentaire, label: 'Un commentaire général à apporter ?' %>
-        <%= f.input :etiquette, label: 'Mots clés qui décrivent la recette, bannane, tomate, pain, pizza ..' %>
 
         <%= f.input :duree, label: 'Durée totale de la recette, en minutes' %>
         <%= f.input :cuisson, label: 'Durée de la cuisson en minutes (si cuisson il y a)' %>
         <%= f.input :note, label: 'Note attribuée à la recette. 5 étoiles ou rien ! on est pas chez Macdo', collection: ["1", "2", "3", "4", "5"] %>
         <%= f.input :difficulte, label: 'Difficulté de la recette', collection: ["1", "2", "3", "4", "5"] %>
+        <%= f.input :photo, as: :file %>
         <%= f.button :submit, "Valider", class: 'btn btn-primary' %>
 
       <% end %>

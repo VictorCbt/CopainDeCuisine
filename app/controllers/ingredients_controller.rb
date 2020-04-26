@@ -7,12 +7,16 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new
   end
 
+  def index
+    @ingredient = Ingredient.all
+  end
+
    def create
     @recette = Recette.find(params[:recette_id])
     @ingredient = Ingredient.new(ingredient_params)
     @ingredient.recette = @recette
-    if @recette.save
-      redirect_to recette_path(@recette)
+    if @ingredient.save
+      new_recette_ingredient_path(@recette)
     else
       render "new"
     end
@@ -21,7 +25,9 @@ class IngredientsController < ApplicationController
   private
 
   def ingredient_params
-    params.require(:dose).permit(:nom, :nombre, :unite, :recette_id)
+    params.require(:ingredient).permit(:nom, :quantite, :unite)
   end
 
 end
+
+

@@ -7,7 +7,7 @@ class RecettesController < ApplicationController
     @recette = Recette.new(recettes_strong_params)
     @recette.user = current_user
     if @recette.save
-      redirect_to recette_path(@recette)
+      redirect_to new_recette_ingredient_path(@recette)
     else
       render 'new'
     end

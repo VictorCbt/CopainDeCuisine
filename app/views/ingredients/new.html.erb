@@ -1,12 +1,10 @@
 <p>test</p>
 <h3>Ajouter un ingrédient</h3>
-<%= simple_form_for [recette, ingredient] do |f| %>
+<%= simple_form_for [@recette, @ingredient] do |f| %>
   <%= f.input :nom %>
-  <%= f.input :quantite %>
   <%= f.input :unite , collection: ["mL", "g", "unité(s)", "cL", "L" "cuillière(s) à café", "cuillière(s) à soupe", "'Verre(s)", "Tranche(s)"] %>
-
+  <%= f.input :quantite %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 
-<button><%= link_to recette_path(@recette) %>Je n'ai plus d'ingreident à ajouter</button>
-
+<button class= "btn btn-danger" ><%= link_to "Je n'ai plus d'ingreident à ajouter", recette_path(@recette) %></button>

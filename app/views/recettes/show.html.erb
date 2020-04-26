@@ -12,13 +12,13 @@
             <h2><strong> <%= @recette.titre %> </strong></h2>
           </div>
           <div class="card-body">
-            <h4> Etapes de ma recette : </h4>
+            <h4> Etapes : </h4>
               <hr>
               <p> <%= @recette.description %> </p>
           </div>
           <% if @recette.lienUrl != "" %>
             <div class="card-body">
-              <h4> Url de la recette :</h4>
+              <h4> Url :</h4>
                 <hr>
                 <a href="" class=""><%= @recette.lienUrl %></a></p>
             </div>
@@ -33,7 +33,7 @@
 
           <% if @recette.note != "" && @recette.commentaire != ""%>
             <div class="card-body">
-              <h4> Mon avis sur cette recette :</h4>
+              <h4> Mon avis :</h4>
               <hr>
               <li class="d-flex  align-items-center">
                 <span class="badge badge-primary badge-pill">
@@ -49,6 +49,7 @@
 
             </div>
           <% end %>
+
         </div>
       </div>
 
@@ -60,7 +61,7 @@
             <h4 style="text-align: center"><strong> Mon profil</strong></h4>
           </div>
           <div class="card-body">
-            <h5 style="text-align: center">Recette postée par <%= @recette.user.email %> </h5>
+            <h5 style="text-align: center">Recette postée par <%= @recette.user.pseudo %> </h5>
           </div>
         </div>
 
@@ -97,6 +98,23 @@
             </li>
           </div>
         </div>
+
+        <div class="card card-outline-secondary my-4 col-md-12 p-0">
+          <div class="card-header">
+            <h4 style="text-align: center"><strong> Ingrédients</strong></h4>
+          </div>
+
+          <div class="card-body">
+            <li class="d-flex align-items-center ">
+              <span class="badge badge-primary badge-pill">
+
+              </span>
+
+            </li>
+          </div>
+        </div>
+
+
        </div>
 
     </div>

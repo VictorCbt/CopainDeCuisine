@@ -29,7 +29,6 @@ class RecettesController < ApplicationController
   def destroy
   end
 
-
   private
 
   def recettes_strong_params

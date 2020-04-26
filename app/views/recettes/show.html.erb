@@ -1,10 +1,74 @@
-<h1>Recettes#show</h1>
-<p>Find me in app/views/recettes/show.html.erb</p>
-<p>J esuis ici</p>
+<div class="container">
+
+    <div class="row">
+      <div class="col-md-8">
+         <div class="card card-outline-secondary my-4">
+          <div class="card-header">
+            <h2><strong> <%= @recette.titre %> </strong></h2>
+          </div>
+          <div class="card-body">
+            <p> Etapes de ma recette :
+              <hr>
+              <%= @recette.description %> </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-outline-secondary my-4">
+          <div class="card-header">
+            <h4 style="text-align: center"><strong> Durée / Préparation</strong></h4>
+            <hr>
+            <h5 style="text-align: center"><%= @recette.duree %> Minutes</h5>
+          </div>
+          <div class="card-body">
+
+          </div>
+        </div>
+      </div>
+    </div>
 
 
-<h1> <%= @recette.titre %> </h1>
-<p> <%= @recette.description  %></p>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card card-outline-secondary my-4" id="photos">
+          <div class="card-header">
+            <h2><strong>Photos</strong></h2>
+          </div>
 
-<%  %>
-<%  %>
+          <div class="cards">
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @recette.photo.key, height: 400, width: 500, crop: :fill %>')">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-outline-secondary my-4">
+          <div class="card-header">
+            <h4 style="text-align: center"><strong> Difficultée</strong></h4>
+            <hr>
+            <h5 style="text-align: center"><%= @recette.difficulte %> stars</h5>
+          </div>
+          <div class="card-body">
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+       <div class="card card-outline-secondary my-4" id="review">
+         <div class="card-header">
+            <h2><strong>Mes commentaires</strong></h2>
+        </div>
+        <div class="card-body">
+        </div>
+
+        </div>
+       </div>
+      </div>
+
+
+</div>

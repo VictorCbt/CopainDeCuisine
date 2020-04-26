@@ -1,0 +1,8 @@
+<h3>Ajouter un ingrédient</h3>
+<%= simple_form_for [recette, ingredient] do |f| %>
+  <%= f.association :ingredient, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+  <%= f.input :nom %>
+  <%= f.input :unitelabel: 'Note attribuée à la recette. 5 étoiles ou rien ! on est pas chez Macdo', collection: ["mL", "g", "unité(s)", "cL", "L" "cuillière(s) à café", "cuillière(s) à soupe", "'Verre(s)", "Tranche(s)"] %>
+  <%= f.input :quantite %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>

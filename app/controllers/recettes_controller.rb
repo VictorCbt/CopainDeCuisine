@@ -7,8 +7,9 @@ class RecettesController < ApplicationController
     @recette = Recette.new(recettes_strong_params)
     @recette.user = current_user
     if @recette.save
-    puts"recette créer"
-    else render 'new'
+      redirect_to recette_path(@recette)
+    else
+      render 'new'
     end
   end
 
@@ -28,11 +29,10 @@ class RecettesController < ApplicationController
   def destroy
   end
 
-
   private
 
   def recettes_strong_params
-    params.require(:recette).permit(:titre, :description, :lienUrl, :variante, :astuce, :univers, :typeplat, :photo, :commentaire, :duree, :cuisson, :note, :difficulte )
+    params.require(:recette).permit(:titre, :description, :lienUrl, :variante, :astuce, :univers, :typeplat, :commentaire, :duree, :cuisson, :note, :difficulte, :photo )
   end
 
 end

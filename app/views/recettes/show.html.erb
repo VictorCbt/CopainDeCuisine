@@ -1,10 +1,158 @@
-<h1>Recettes#show</h1>
-<p>Find me in app/views/recettes/show.html.erb</p>
-<p>J esuis ici</p>
+<div class="card-category-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1518291344630-4857135fb581?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80)">
+  <%= @recette.titre %>
+</div>
 
 
-<h1> <%= @recette.titre %> </h1>
-<p> <%= @recette.description  %></p>
-<h1> <% cl_image_tag @recette.photo.key %></h1>
-<%  %>
-<%  %>
+<div class="container">
+
+    <div class="row">
+      <div class="col-md-8">
+         <div class="card card-outline-secondary my-4">
+          <div class="card-header">
+            <h2><strong> <%= @recette.titre %> </strong></h2>
+          </div>
+          <div class="card-body">
+            <h4> Etapes : </h4>
+              <hr>
+              <p> <%= @recette.description %> </p>
+          </div>
+          <% if @recette.lienUrl != "" %>
+            <div class="card-body">
+              <h4> Url :</h4>
+                <hr>
+                <a href="" class=""><%= @recette.lienUrl %></a></p>
+            </div>
+          <% end %>
+          <% if @recette.astuce != "" %>
+            <div class="card-body">
+              <h4> Mes astuces</h4>
+              <hr>
+              <%= @recette.astuce %> </p>
+            </div>
+          <% end %>
+
+          <% if @recette.note != "" && @recette.commentaire != ""%>
+            <div class="card-body">
+              <h4> Mon avis :</h4>
+              <hr>
+              <li class="d-flex  align-items-center">
+                <span class="badge badge-primary badge-pill">
+                  <% counter = 0 %>
+                  <% 5.times do %>
+                    <i class="fa <%= @recette.note > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                    <% counter += 1 %>
+                  <% end %>
+                </span>
+                <span class="ml-2">sur 5
+                <span class="ml-2">- <%= @recette.commentaire %></span>
+              </li>
+
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+
+        <div class="card card-outline-secondary my-4 col-md-12 p-0">
+          <div class="card-header">
+            <h4 style="text-align: center"><strong> Mon profil</strong></h4>
+          </div>
+          <div class="card-body">
+            <h5 style="text-align: center">Recette postée par <%= @recette.user.pseudo %> </h5>
+          </div>
+        </div>
+
+
+        <div class="card card-outline-secondary my-4 col-md-12 p-0">
+          <div class="card-header">
+            <h4 style="text-align: center"><strong> Temps</strong></h4>
+
+          </div>
+          <div class="card-body ">
+            <h5 style="text-align: center">Préparation : <strong><%= @recette.duree %></strong>  Minutes</h5>
+            <% if @recette.cuisson != "" %>
+            <h5 style="text-align: center">Cuisson : <strong><%= @recette.cuisson %></strong>  Minutes</h5>
+            <% end %>
+          </div>
+        </div>
+
+
+        <div class="card card-outline-secondary my-4 col-md-12 p-0">
+          <div class="card-header">
+            <h4 style="text-align: center"><strong> Difficulté</strong></h4>
+          </div>
+
+          <div class="card-body">
+            <li class="d-flex align-items-center ">
+              <span class="badge badge-primary badge-pill">
+                  <% counter = 0 %>
+                  <% 5.times do %>
+                    <i class="fa <%= @recette.difficulte > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                  <% counter += 1 %>
+                  <% end %>
+              </span>
+              <span class="ml-2">sur 5</span>
+            </li>
+          </div>
+        </div>
+
+        <div class="card card-outline-secondary my-4 col-md-12 p-0">
+          <div class="card-header">
+            <h4 style="text-align: center"><strong> Ingrédients</strong></h4>
+          </div>
+
+          <div class="card-body">
+            <li class="d-flex align-items-center ">
+              <span class="badge badge-primary badge-pill">
+
+              </span>
+
+            </li>
+          </div>
+        </div>
+
+
+       </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-outline-secondary my-4" id="photos">
+          <div class="card-header">
+            <h2><strong>Photos</strong></h2>
+          </div>
+
+          <div class="card-photo">
+            <div class="card-category-photo" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path @recette.photo.key, height: 500, width: 500, crop: :fill %>')">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="col-md-4">
+
+      </div>
+
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+       <div class="card card-outline-secondary my-4" id="review">
+         <div class="card-header">
+            <h2><strong>Commentaires des copains</strong></h2>
+        </div>
+        <div class="card-body">
+        </div>
+
+        </div>
+       </div>
+    </div>
+  </div>
+</div>

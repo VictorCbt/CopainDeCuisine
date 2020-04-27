@@ -8,6 +8,13 @@ class Recette < ApplicationRecord
   validates :description, presence: true
   validates :typeplat, presence: true
   validates :univers, presence: true
+  validates :description, presence: true
+  validates :difficulte, presence: true
+  validates :photo, presence: true
+  validates :note, presence: true
+  validates :cuisson, presence: true
+  validates :duree, presence: true
+
 
 
 end

@@ -79,7 +79,7 @@
           </div>
         </div>
 
-
+        <% if @recette.difficulte != ""  %>
         <div class="card card-outline-secondary my-4 col-md-12 p-0">
           <div class="card-header">
             <h4 style="text-align: center"><strong> Difficulté</strong></h4>
@@ -98,6 +98,7 @@
             </li>
           </div>
         </div>
+        <% end %>
 
         <div class="card card-outline-secondary my-4 col-md-12 p-0">
           <div class="card-header">
@@ -105,22 +106,26 @@
           </div>
 
           <div class="card-body">
-            <li class="d-flex align-items-center ">
-              <span class="badge badge-primary badge-pill">
-
-              </span>
-
-            </li>
+            <div>
+              <% @recette.ingredients.each do |i| %>
+              <h5><%= i.quantite  %><%= i.unite %> de <%= i.nom  %>  </h5>
+              <% end %>
+            </div>
+            <br>
+              <% if @recette.user == current_user %>
+                <%= button_to "Ajouter un ingrédient", new_recette_ingredient_path(@recette), :id => "open-contacts-dialog-btn",
+                  :class => "btn btn-outline-danger w-100", :method => :get %>
+              <% end %>
           </div>
         </div>
-
-
-       </div>
-
+      </div>
     </div>
 
+
+
+
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-8">
         <div class="card card-outline-secondary my-4" id="photos">
           <div class="card-header">
             <h2><strong>Photos</strong></h2>
@@ -134,9 +139,7 @@
         </div>
       </div>
 
-
       <div class="col-md-4">
-
       </div>
 
     </div>

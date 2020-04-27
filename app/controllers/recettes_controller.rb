@@ -35,4 +35,5 @@ class RecettesController < ApplicationController
     params.require(:recette).permit(:titre, :description, :lienUrl, :variante, :astuce, :univers, :typeplat, :commentaire, :duree, :cuisson, :note, :difficulte, :photo )
   end
 
+
 end

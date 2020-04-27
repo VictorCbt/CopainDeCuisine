@@ -111,14 +111,28 @@
               <h5><%= i.quantite  %><%= i.unite %> de <%= i.nom  %>  </h5>
               <% end %>
             </div>
+              <% if @recette.user == current_user %>
+
+                  <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-danger" href="ingredients/new" >
+                  <%= link_to"djeizdjoi", new_recette_ingredient_path(@recette)  %>
+                  Ajouter un ingrédient
+                </button>
+
+                <!-- Modal button commentaire-->
+
+
+              <% end %>
           </div>
         </div>
       </div>
     </div>
 
 
+
+
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-8">
         <div class="card card-outline-secondary my-4" id="photos">
           <div class="card-header">
             <h2><strong>Photos</strong></h2>

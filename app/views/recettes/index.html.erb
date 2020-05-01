@@ -1,2 +1,31 @@
-<h1>Recettes#index</h1>
-<p>Find me in app/views/recettes/index.html.erb</p>
+
+
+<h1 class='title-page'>Résultat de la recherche</h1>
+<div class="results-container">
+  <div class="cards-result">
+    <div style="list-style-type: none">
+      <% @recettes.each do |recette| %>
+        <div class="card-result">
+          <div>
+          <%= cl_image_tag recette.photo, height: 200, width: 300, crop: :fill %>
+          </div>
+          <div class="card-result-text">
+            <div class="card-result-infos">
+              <h2><%= recette.titre %></h2>
+              <p><%= recette.univers %> - <%= recette.typeplat %></p>
+              <hr>
+              <h2>Chez <%= recette.user.pseudo %> !</h2>
+            </div>
+            <div class="card-result-pricing">
+              <h2>Difficulté :<%= recette.difficulte %> sur 5</h2>
+              <div class="btn btn-info">
+                <%= link_to "Plus d'info", recette_path(recette) %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

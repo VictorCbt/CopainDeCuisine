@@ -4,15 +4,14 @@ class Recette < ApplicationRecord
   has_many :whishlists, dependent: :destroy
   has_many :ingredients, dependent: :destroy
   has_one_attached :photo
-  validates :titre, presence: true, uniqueness: true
+  validates :titre, presence: true
   validates :description, presence: true
   validates :typeplat, presence: true
   validates :univers, presence: true
   validates :description, presence: true
   validates :difficulte, presence: true
-  validates :photo, presence: true
+
   validates :note, presence: true
-  validates :cuisson, presence: true
   validates :duree, presence: true
 
 

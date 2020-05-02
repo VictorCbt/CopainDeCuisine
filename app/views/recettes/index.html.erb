@@ -1,95 +1,35 @@
 
-
-<h1 class='title-page'>Résultats</h1>
+<br>
+<br>
 <div class="container">
 
-<form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-    </button>
-  </div>
-</form>
+  <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+    <div class="search-form-control form-group">
+      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+      <button name="button" type="submit" class="btn btn-flat">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+  </form>
 
- <!--  <div class="d-flex">
-    <div class="card-trip mr-2">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="row m-0">
+    <% @recettes.each do |recette| %>
+    <div class="card-trip col-12 col-md-6 col-lg-3 p-0 m-2" >
+      <div class="card-trip-image" alt="Card image cap"><%= cl_image_tag recette.photo.key, height: 200, width: 250, crop: :fill if recette.photo.attached? %></div>
+
       <div class="card-trip-infos">
         <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
+          <h2><%= recette.titre %></h2>
+          <p> <small><%= recette.univers %></small></p>
         </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        <h3 class="card-trip-pricing"><%= recette.user.pseudo  %> </h3>
+        <img src="https://image.flaticon.com/icons/svg/1869/1869101.svg" class="card-trip-user avatar-bordered" />
       </div>
+      <div><%= link_to "", recette_path(recette), class: 'card-link' %></div>
     </div>
-
-     <div class="card-trip  mr-2">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
-
-     <div class="card-trip  mr-2">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
-
-     <div class="card-trip">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-trip-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-      </div>
-    </div>
-  </div> -->
+    <% end  %>
 
 
-
-  <div class="cards-result">
-    <div style="list-style-type: none" class="card-test">
-      <% @recettes.each do |recette| %>
-        <div class="card-result">
-          <div>
-          <%= cl_image_tag recette.photo.key, height: 200, width: 300, crop: :fill if recette.photo.attached? %>
-
-          </div>
-          <div class="card-result-text">
-            <div class="card-result-infos">
-              <h2><%= recette.titre %></h2>
-              <p><%= recette.univers %> - <%= recette.typeplat %></p>
-              <hr>
-              <h2>Chez <%= recette.user.pseudo %> !</h2>
-            </div>
-            <div class="card-result-pricing">
-              <h2>Difficulté :<%= recette.difficulte %> sur 5</h2>
-              <div class="btn btn-info">
-                <%= link_to "", recette_path(recette), class: 'card-link' %>
-                <%= link_to "Plus d'info", recette_path(recette) %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
   </div>
 
 </div>

@@ -63,6 +63,25 @@ ingredient2 = Ingredient.create!(recette_id: recette3.id, nom:"Farine", quantite
 ingredient3 = Ingredient.create!(recette_id: recette3.id, nom:"Sel", quantite:"2", unite:"Cuillière(s) à café")
 
 
+
+recette4 = Recette.create!(titre: "Pain Cocotte de boulanger", description: "
+1. Melanger 300g d'eau et 15g de levure de fraiche (10g de levure déshydratée)
+2. Ajouter 500g de farine + 2 CC de sel et pétrir la patte pendant 5 min
+3. Mettre la pate dans un recipient, couvrir d'un film plastic pour éviter que la patte ne sèche.
+4. Laisser lever la patte 1h30
+5. Donner une forme ronde à la patte
+6. Graisser la cocotte ou mettre du papier cuisson
+7. Faire 5 entailles parrallèles, au couteau bien aiguisé
+7. Badigeonner d'eau et soupoudrer de farine
+8. Cuire 55min/1h à 240°C", astuce:"recette adaptée car pas assez salée, bien mettre 2cc de sel", univers:"Pain", typeplat:"plat", lienUrl:"https://www.cookomix.com/recettes/pain-cocotte-thermomix/", commentaire: "Un pain comme chez le boulanger!", note:"5", duree: "10", difficulte: "1", cuisson: "60", user_id: user1.id)
+
+
+ingredient1 = Ingredient.create!(nom:"Eau", quantite:"300", unite:"g",recette_id: recette4.id)
+ingredient2 = Ingredient.create!(recette_id: recette4.id, nom:"Farine", quantite:"500", unite:"g")
+ingredient3 = Ingredient.create!(recette_id: recette4.id, nom:"Sel", quantite:"2", unite:"Cuillière(s) à café")
+
+
+
 require "open-uri"
 
 file1 = URI.open ('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
@@ -73,3 +92,8 @@ recette2.photo.attach(io: file2, filename:"spaguetti.png", content_type: 'image/
 
 file3 = URI.open ('https://www.cookomix.com/wp-content/uploads/2016/03/pain-cocotte-thermomix-800x600.jpg')
 recette3.photo.attach(io: file3, filename:"paincocotte.png", content_type: 'image/png')
+
+
+file4 = URI.open ('https://www.cookomix.com/wp-content/uploads/2016/03/pain-cocotte-thermomix-800x600.jpg')
+recette4.photo.attach(io: file4, filename:"paincocotte.png", content_type: 'image/png')
+

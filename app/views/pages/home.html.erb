@@ -5,11 +5,13 @@
     <div class="banner-text">
       <h1>Decouvre les  <strong>recettes phares</strong> de <strong><span style="background: rgba(196,196,196,.4)", id="banner-typed-text"></span></strong>!</h1>
       <p>et partage ton savoir-faire </p>
-      <a class="btn btn-flat w-10" href="#">Voir les recettes</a>
+
+      <%= button_to "Voir les recettes", recettes_path, :id => "open-contacts-dialog-btn",
+                  :class => "btn btn-flat w-10", :method => :get %>
+
     </div>
   </div>
 </div>
-
 
 
 
@@ -28,6 +30,6 @@
     <a href="#"><i class="fab fa-linkedin"></i></a>
   </div>
   <div class="footer-copyright">
-    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+    This footer is made with <i class="fas fa-heart"></i> by Vico
   </div>
 </div>

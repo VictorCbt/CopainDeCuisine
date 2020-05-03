@@ -5,5 +5,13 @@ require("channels")
 import "bootstrap";
 
 import { loadDynamicBannerText } from '../components/banner';
+import initSelect2 from '../plugins/init_select2.js';
+import testSelect2 from '../plugins/init_select2.js';
+
+
+initSelect2();
+testSelect2();
 
 loadDynamicBannerText();
+
+

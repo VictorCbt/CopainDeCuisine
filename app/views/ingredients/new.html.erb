@@ -1,14 +1,14 @@
+ <% listeingredients =[ "Abricot", "Agneau", "Ail", "Airelle", "Algue", "Amande","Ananas", "Anchois", "Aneth", "Anguille", "Armagnac", "Artichaut", "Asperge", "Aubergine", "Autruche", "Avocat", "Bacon", "Baguette", "Banane", "Bar", "Basilic", "Batavia", "Beaufort", "Béchamel", "Betterave", "Beurre", "Bière", "Biscotte", "Biscuit", "Blé", "Blette", "Bleu", "Boeuf", "Bonbon", "Boudin", "Bouquet Garni", "Bourbon", "Boursin", "Brandy", "Brioche", "Brocoli", "Cabillaud", "Cacahuète", "Cacao", "Café", "Caille", "Calamar", "Calvados", "Camembert", "Canard", "Cannelle", "Cantal", "Câpre", "Caramel", "Carotte", "Carpe", "Cassis", "Céleri", "Cèpe", "Cerfeuil", "Cerise", "Champagne", "Champignon", "Chanterelle", "Chapon", "Châtaigne", "Chèvre", "Chocolat", "Chorizo", "Chou", "Chou-Fleur", "Ciboulette", "Cidre", "Citron", "Citrouille", "Clémentine", "Clou De Girofle", "Coca-Cola", "Coeur De Palmier", "Cognac", "Coing", "Cointreau", "Colin", "Compote",  "Comté",  "Concombre",  "Confiture",  "Coquelet", "Coquille Saint-Jacques", "Coquillettes", "Coriandre",  "Corn Flakes",  "Cornichon",  "Courge", "Courgette",  "Couscous", "Crabe",  "Crème Fraîche",  "Crêpe",  "Cresson",  "Crevette", "Crosne", "Crottin De Chèvre",  "Cumin",  "Curcuma",  "Curry",  "Datte",  "Daurade",  "Dinde",  "Eau De Vie", "Échalote", "Emmental", "Endive", "Épinards", "Escalope", "Escargot", "Estragon", "Farine", "Fenouil",  "Feta", "Feuille De Brick", "Fève", "Figue",  "Foie Gras",  "Fraise", "Framboise",  "Fromage",  "Fromage Blanc",  "Fruit De La Passion",  "Fruits De Mer",  "Gamba",  "Gibier", "Gigot",  "Gin",  "Gingembre",  "Girolle",  "Glace",  "Goyave", "Grand Marnier",  "Grenadine",  "Grenouille", "Griotte Au Sirop", "Groseille",  "Gruyère",  "Haddock",  "Hareng", "Haricot",  "Harissa",  "Homard", "Huître", "Jambon", "Jambonneau", "Jus",  "Kiwi", "Lait", "Lait De Coco", "Laitue", "Langouste",  "Langoustine",  "Lapin",  "Lard", "Lardon", "Lasagne",  "Laurier",  "Lentille", "Lieu", "Lièvre", "Limonade", "Liqueur",  "Litchi", "Lotte", "Loup", "Macaron", "Macaroni", "Mâche",  "Magret", "Maïs", "Malibu", "Mangue", "Maquereau",  "Marron", "Marshmallow",  "Martini",  "Melon",  "Menthe", "Merguez",  "Merlan", "Merlu",  "Miel", "Mirabelle",  "Morue",  "Moules", "Mouton", "Mozzarella", "Munster",  "Mûre", "Muscade",  "Myrtille", "Navet",  "Nectar", "Noisette", "Noix", "Noix De Cajou",  "Noix De Coco", "Nougat", "Oeuf", "Oie", "Oignon", "Olive",  "Orange", "Origan", "Oseille",  "Pain", "Pamplemousse", "Papaye", "Paprika",  "Parmesan", "Pastis", "Pâte", "Pâtes",  "Pêche",  "Persil", "Petit Suisse", "Petits Pois",  "Pigeon", "Pignon", "Piment", "Pineau", "Pintade", "Poire", "Poireau", "Pois", "Poisson",  "Poitrine Fumée", "Poivron", "Pomme", "Pomme De Terre", "Porc", "Porto",  "Potimarron", "Poulet", "Poulpe", "Pousse De Bambou", "Prune",  "Pruneau",  "Purée",  "Radis",  "Raie", "Raisin", "Rascasse", "Ratatouille",  "Raviolis", "Reblochon",  "Reine Claude", "Rhubarbe", "Rhum", "Ricotta", "Risotto", "Riz", "Romarin", "Roquefort", "Rouget", "Rumsteak", "Safran", "Saint-Moret",  "Saint-Nectaire", "Saké", "Salade", "Sardine",  "Saucisse", "Saucisson",  "Saumon", "Seiche", "Semoule",  "Sésame", "Soda", "Soja", "Sole", "Sorbet", "Spaghetti",  "Spéculos", "Steak",  "Sucre",  "Surimi", "Tagliatelle",  "Tapenade", "Tequila",  "Thé",  "Thon", "Thym", "Tofu", "Tomate", "Topinambour",  "Tournedos",  "Truffe", "Truite", "Turbot", "Vanille",  "Veau", "Vermouth", "Viande Des Grisons", "Vin", "Vodka",  "Volaille", "Whisky", "Yaourt"] %>
 
 <br>
 <h3 class="text-center">Ajouter un ingrédient à votre recette</h3>
 <div class="card-category-form w-50">
 
 
-
    <%= simple_form_for [@recette, @ingredient] do |f| %>
 
     <div class="col-md-12 pl-0 pr-0">
-        <%= f.input :nom, label: "Taper un ingrédient, puis saisir une quantité / unité" %>
+        <%= f.input :nom, input_html: { class: 'select2'}, label: "Taper un ingrédient, puis saisir une quantité / unité", collection: listeingredients, input_html: {class: 'select2'} %>
     </div>
 
     <div class="col-md-12 d-flex pl-0 pr-0">
@@ -16,7 +16,7 @@
         <%= f.input :quantite  %>
      </div>
       <div class="col-md-6 pr-0">
-        <%= f.input :unite, label: "Unité de mesure ? pour un oeuf par ex. mettre 'unités'", collection: ["mL", "g", "unité(s)", "cL", "L", "Cuillière(s) à café", "Cuillière(s) à soupe", "Verre(s)", "Tranche(s)"] %>
+        <%= f.input :unite, label: "Unité de mesure ? 1 Oeuf = 'unités(s)'", collection: ["mL", "g", "unité(s)", "cL", "L", "Cuillière(s) à café", "Cuillière(s) à soupe", "Verre(s)", "Tranche(s)"] %>
       </div>
     </div>
 
@@ -26,3 +26,7 @@
     <% end %>
 </div>
 
+<select class="Select2" name="country">
+  <option value="AL">Alabama</option>
+  <option value="WY">Wyoming</option>
+</select>

@@ -15,5 +15,21 @@ class Recette < ApplicationRecord
   validates :duree, presence: true
 
 
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :titre, :univers ],
+    associated_against: {
+      user: [ :pseudo ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+end
 
+def self.search(search)
+  if search
+    Recette.where('lower(address) LIKE ?', search[:univers].downcase)
+  else
+    Recette.all
+  end
 end

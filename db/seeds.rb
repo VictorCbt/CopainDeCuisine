@@ -55,7 +55,8 @@ recette3 = Recette.create!(titre: "Pain Cocotte de boulanger", description: "
 6. Graisser la cocotte ou mettre du papier cuisson
 7. Faire 5 entailles parrallèles, au couteau bien aiguisé
 7. Badigeonner d'eau et soupoudrer de farine
-8. Cuire 55min/1h à 240°C", astuce:"recette adaptée car pas assez salée, bien mettre 2cc de sel", univers:"Pain", typeplat:"plat", lienUrl:"https://www.cookomix.com/recettes/pain-cocotte-thermomix/", commentaire: "Un pain comme chez le boulanger!", note:"5", duree: "10", difficulte: "1", cuisson: "60", user_id: user1.id)
+8. Cuire 55min/1h à 240°C", astuce:"recette adaptée car pas assez salée, bien mettre 2cc de sel
+Ne pas faire préchauffer le four", univers:"Pain", typeplat:"plat", lienUrl:"https://www.cookomix.com/recettes/pain-cocotte-thermomix/", commentaire: "Un pain comme chez le boulanger!", note:"5", duree: "10", difficulte: "1", cuisson: "60", user_id: user1.id)
 
 
 ingredient1 = Ingredient.create!(nom:"Eau", quantite:"300", unite:"g",recette_id: recette3.id)

@@ -13,7 +13,7 @@
   </form>
 
 
-  <div class="row m-0">
+  <div class="row listdiv m-0">
     <% @recettes.each do |recette| %>
     <div class="card-trip col-12 col-md-6 col-lg-3 p-0 m-2" >
       <div class="card-trip-image" alt="Card image cap"><%= cl_image_tag recette.photo.key, height: 200, width: 250, crop: :fill if recette.photo.attached? %></div>

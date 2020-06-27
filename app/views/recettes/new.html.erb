@@ -1,29 +1,85 @@
-<h1 class='title-page'>Publier une nouvelle recette</h1>
+
 <div class="container">
+
   <div class="row justify-content-center">
+       <br>
+      <h1 class='title-page-form pt-3 pb-3'>Publier une nouvelle recette</h1>
+      <br>
+
     <div class="col-md-8">
+
+<% choixunivers =['Asiatique',
+                  'Burger',
+                  'Casher',
+                  'Convivial',
+                  'Crêpes / Galettes',
+                  'Crustacés',
+                  'Dessert',
+                  'Enfants',
+                  'Epicés ',
+                  'Fromages',
+                  'Gâteau',
+                  'Gibier',
+                  'Glaces',
+                  'Gratins',
+                  'Healthy',
+                  'Junk food',
+                  'Légumes',
+                  'Omelettes',
+                  'Pains et viennoiseries ',
+                  'Pâtes',
+                  'Pizza',
+                  'Poissons et crustacés',
+                  'Poulet',
+                  'Quiche',
+                  'Salades',
+                  'Sandwich',
+                  'Sauce',
+                  'Sauces',
+                  'Smoothies',
+                  'Tarte',
+                  'Terrine',
+                  'Vegan ',
+                  'Viandes blanches',
+                  'Viandes rouges']
+
+
+  choixtypes =["Accompagnement","Entrée", "Plat", "Dessert"] %>
+
 
 
       <%= simple_form_for @recette do |f| %>
-        <%= f.input :titre, label: 'Titre ou punchline de votre super recette' %>
-        <%= f.input :description, label: 'Décrire les étapes de votre recette, "comme ça, là.."(Lignac)' %>
+        <%= f.input :titre, label: 'Titre votre super recette' %>
+        <%= f.input :description, label: 'Décrire les étapes de votre recette, "comme ça, là.."(Lignac)', :input_html => { :cols => 5, :rows => 10 } %>
         <%= f.input :lienUrl, label: 'Lien URL de la recette ?' %>
 
-        <%= f.input :variante, label: 'avez-vous testé une variante ? "avec de la petite épautre par exemple, pour les mangeurs de graines"' %>
+        <%#= f.input :variante, label: 'avez-vous testé une variante ? "avec de la petite épautre par exemple, pour les mangeurs de graines"' %>
         <%= f.input :astuce, label:'une super astuce à nous donner?' %>
-        <%= f.input :typeplat, label: 'Entrée, plat ou dessert', collection: ["Entrée", "Plat", "Dessert"] %>
-        <%= f.input :univers, label: 'Healthy, épicé, vegan, viande, plat convivial, dessert, gateau, pain ..', collection: ["Convivial","Dessert", "Gâteau", "Epicé", "Healthy", "Pain", "Patte", "Pizza", "Sauce", "Vegan", "Viande"], multiple: true %>
+        <%= f.input :typeplat, label: "Type de plat", collection: choixtypes, as: :radio_buttons  %>
+        <%= f.input :univers, label: 'Choisissez un ou plusieurs Tag pour faciliter la recherche de votre recette', collection: choixunivers, as: :check_boxes, :multiple => true %>
 
-        <%= f.input :duree, label: 'Durée totale de la recette, en minutes' %>
-        <%= f.input :cuisson, label: 'Durée de la cuisson en minutes (si cuisson il y a)' %>
-        <%= f.input :note, label: 'Note attribuée à la recette. 5 étoiles ou rien ! on est pas chez Macdo', collection: ["1", "2", "3", "4", "5"] %>
+      <div class="d-flex spa">
+        <div class="pr-4">
+          <%= f.input :duree, placeholder:"En minutes", label: 'Temps de préparation' %>
+        </div>
+        <div class="pl-4">
+          <%= f.input :cuisson, label: 'Temps de cuisson (O cuisson = ne rien saisir)', placeholder:"En minutes" %>
+        </div>
+      </div>
+
+        <%= f.input :note, label: 'Note attribuée à la recette. Focus sur recettes 5 étoiles ou rien !', collection: ["1", "2", "3", "4", "5"], as: :radio_buttons %>
         <%= f.input :commentaire, label: 'Un commentaire général à apporter ?' %>
 
-        <%= f.input :difficulte, label: 'Difficulté de la recette', collection: ["1", "2", "3", "4", "5"] %>
-        <%= f.input :photo, as: :file %>
-        <%= f.button :submit, "Valider", class: 'btn btn-primary' %>
+        <%= f.input :difficulte, label: 'Difficulté', collection: ["1", "2", "3", "4", "5"], as: :radio_buttons %>
+        <%= f.input :photo, label: 'Une photo à joindre', as: :file %>
+           <br>
+        <%= f.button :submit, "Valider", class: 'btn btn-primary w-100' %>
+
+        <br>
 
       <% end %>
     </div>
+    <br>
   </div>
+  <br>
 </div>

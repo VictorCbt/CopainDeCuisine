@@ -14,7 +14,7 @@
           <div class="card-body">
             <h4> Etapes : </h4>
               <hr>
-              <p> <%= @recette.description %> </p>
+              <p> <%= simple_format(@recette.description) %> </p>
           </div>
           <% if @recette.lienUrl != "" %>
             <div class="card-body">

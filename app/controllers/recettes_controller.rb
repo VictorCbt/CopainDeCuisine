@@ -18,6 +18,7 @@ class RecettesController < ApplicationController
   end
 
   def index
+    @recettes = Recette.all.order('created_at DESC')
   end
 
   def edit
@@ -32,7 +33,7 @@ class RecettesController < ApplicationController
   private
 
   def recettes_strong_params
-    params.require(:recette).permit(:titre, :description, :lienUrl, :variante, :astuce, :univers, :typeplat, :commentaire, :duree, :cuisson, :note, :difficulte, :photo )
+    params.require(:recette).permit(:titre, :description, :lienUrl, :variante, :astuce, :typeplat, :commentaire, :duree, :cuisson, :note, :difficulte, :photo, univers: []  )
   end
 
 

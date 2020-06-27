@@ -1,3 +1,28 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1435909/pexels-photo-1435909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+  <div>
+    <div class="banner-text">
+      <h1>Decouvre les  <strong>recettes phares</strong> de <strong><span style="background: rgba(196,196,196,.4)", id="banner-typed-text"></span></strong>!</h1>
+      <p>et partage ton savoir-faire </p>
+
+      <%= button_to "Voir les recettes", recettes_path, :id => "open-contacts-dialog-btn",
+                  :class => "btn btn-flat w-10", :method => :get %>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> by Vico
+  </div>
+</div>

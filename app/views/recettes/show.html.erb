@@ -152,6 +152,14 @@
             <h2><strong>Commentaires des copains</strong></h2>
         </div>
         <div class="card-body">
+
+        <hr>
+
+             <% @recette.reviews.each do |i| %>
+             <%= i.note  %>
+             <%= i.commentaire  %>
+            <% end %>
+
         </div>
 
         </div>

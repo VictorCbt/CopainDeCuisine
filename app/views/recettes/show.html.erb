@@ -3,6 +3,10 @@
 </div>
 
 
+<title>test</title>
+<meta name = "title" content="super site de dingue">
+<meta name="description" content="Des recettes de dingues">
+
 <div class="container">
 
     <div class="row">
@@ -154,11 +158,21 @@
         <div class="card-body">
 
         <hr>
-
+          <div>
              <% @recette.reviews.each do |i| %>
              <%= i.note  %>
+             <%= "/ 5"  %>
+             <%=  i.user.pseudo  %>
+             <%= "-"  %>
              <%= i.commentaire  %>
+
+
             <% end %>
+          </div>
+          <div>
+              <%= button_to "Ajouter un commentaire", new_recette_review_path(@recette), :id => "open-contacts-dialog-btn",
+                  :class => "btn btn-outline-danger w-100", :method => :get %>
+          </div>
 
         </div>
 

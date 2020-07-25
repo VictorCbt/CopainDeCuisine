@@ -1,7 +1,9 @@
 <h1>c'est ici mon coco</h1>
 
-<%= simple_form_for [@recette, @review] do |f| %>
-  <%= f.input :commentaire %>
-  <%= f.input :note, label: 'Note', collection: ["1", "2", "3", "4", "5"], as: :radio_buttons %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+<div>
+  <%= simple_form_for [@recette, @review] do |f| %>
+    <%= f.input :commentaire %>
+    <%= f.input :note, label: 'Note', collection: ["1", "2", "3", "4", "5"], as: :radio_buttons %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+</div>

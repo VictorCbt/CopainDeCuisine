@@ -157,15 +157,27 @@
         </div>
         <div class="card-body">
 
-        <hr>
-          <div>
-             <% @recette.reviews.each do |i| %>
-             <%= i.note  %>
-             <%= "/ 5"  %>
-             <%=  i.user.pseudo  %>
-             <%= "-"  %>
-             <%= i.commentaire  %>
 
+          <div>
+             <% if @recette.reviews != ""  %>
+
+               <% @recette.reviews.each do |i| %>
+                <div>
+               <% counter = 0 %>
+                  <% 5.times do %>
+                  <i class="fa <%= i.note > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                  <% counter += 1 %>
+
+               <% end %>
+                <i>par</i>
+                <strong><i class=""> <%= i.user.pseudo %></i></strong>
+
+                <i>:</i>
+                <i><%= i.commentaire  %></i>
+                     <hr>
+               </div>
+
+              <% end %>
 
             <% end %>
           </div>

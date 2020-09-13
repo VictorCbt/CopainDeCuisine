@@ -18,6 +18,16 @@
   </form>
 
 
+<div class="cards cards-text">
+  <% @recettes.each do |r| %>
+  <div class="card-category" style="background-image: url('<%= cl_image_tag r.photo.key%>')">
+    <%= cl_image_tag r.photo.key, height: 200, width: 250, crop: :fill if r.photo.attached? %>
+   <%= r.titre  %>
+  </div>
+   <%end %>
+</div>
+
+
 <div class="row">
   <% @recettes.each do |r| %>
   <div class=" card-trip col-lg-3 col-md-6 col-sm-12 pr-1 pl-1">

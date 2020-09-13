@@ -20,7 +20,7 @@
 
 <div class="cards cards-text">
   <% @recettes.each do |r| %>
-  <div class="card-category" style="background-image: url('<%= cl_image_tag r.photo.key%>')">
+  <div class="card-category" style="background-image: url('<%= cl_image_tag r.photo.key %>')">
     <%= cl_image_tag r.photo.key, height: 200, width: 250, crop: :fill if r.photo.attached? %>
    <%= r.titre  %>
   </div>

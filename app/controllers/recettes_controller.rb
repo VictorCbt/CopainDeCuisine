@@ -18,7 +18,16 @@ class RecettesController < ApplicationController
   end
 
   def index
-    @recettes = Recette.all.order('created_at DESC')
+
+   if params[:query].present?
+      sql_query = "titre ILIKE :query OR univers ILIKE :query"
+      @recettes = Recette.where(sql_query, query: "%#{params[:query]}%")
+
+    else
+      @recettes = Recette.all.order('created_at DESC')
+
+    end
+
   end
 
   def edit

@@ -16,6 +16,7 @@ class CreateRecettes < ActiveRecord::Migration[6.0]
       t.integer :note
 
       t.timestamps
+
     end
   end
 end

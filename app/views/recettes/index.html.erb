@@ -17,14 +17,14 @@
     </div>
   </form>
 
-
 <div class="cards cards-text">
   <% @recettes.each do |r| %>
-  <div class="card-category" style="background-image: url('<%= cl_image_tag r.photo.key %>')">
-    <%= cl_image_tag r.photo.key, height: 200, width: 250, crop: :fill if r.photo.attached? %>
-   <%= r.titre  %>
+    <%= link_to "", recette_path(r), class: 'card-link' %>
+  <div class="card-category_new" style="background-image: url(<%= cl_image_path(r.photo.key) %>)">
+    <%= r.titre  %>
+
   </div>
-   <%end %>
+  <%end %>
 </div>
 
 

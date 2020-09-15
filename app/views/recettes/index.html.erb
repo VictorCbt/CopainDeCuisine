@@ -19,31 +19,18 @@
 
 <div class="cards cards-text">
   <% @recettes.each do |r| %>
-    <%= link_to "", recette_path(r), class: 'card-link' %>
-  <div class="card-category_new" style="background-image: url(<%= cl_image_path(r.photo.key) %>)">
-    <%= r.titre  %>
-
-  </div>
-  <%end %>
-</div>
-
-
-<div class="row">
-  <% @recettes.each do |r| %>
-  <div class=" card-trip col-lg-3 col-md-6 col-sm-12 pr-1 pl-1">
-      <div class="card-trip-image" alt="Card image cap">
-        <%= cl_image_tag r.photo.key, height: 200, width: 250, crop: :fill if r.photo.attached? %>
-        <div class="card-trip-infos">dde
-          <h5 class="card-title"><%= r.titre  %></h5>
-
-          <p>Par Chef <strong> <%= r.user.pseudo  %></strong></p>
-          <img src="https://image.flaticon.com/icons/svg/1869/1869101.svg" class="card-trip-user avatar-bordered" />
-          <div><%= link_to "", recette_path(r), class: 'card-link' %></div>
-        </div>
+  <div class="card-category_new" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(r.photo.key) %>)">
+    <div class="cards-text">
+    <p><%= r.titre  %></p>
+    <a href=""><%= link_to "voir la recette", recette_path(r), class: 'btn btn-flat' %></a>
     </div>
   </div>
- <%end %>
+   <%end %>
 </div>
+
+
+
+
 
 
 

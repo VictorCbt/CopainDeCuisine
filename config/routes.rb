@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :recettes, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :ingredients, only: [:index, :show, :new, :create, :destroy]
     # resources :whishlists, only: [:show, :new, :create]
-    # resources :reviews, only: [:index, :show, :new, :create]
+    resources :reviews, only: [:index, :show, :new, :create]
   end
 end

@@ -11,7 +11,6 @@ class Recette < ApplicationRecord
   validates :description, presence: true
   validates :difficulte, presence: true
 
-  validates :note, presence: true
   validates :duree, presence: true
 
 

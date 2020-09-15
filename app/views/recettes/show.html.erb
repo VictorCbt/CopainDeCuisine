@@ -3,6 +3,10 @@
 </div>
 
 
+<title>test</title>
+<meta name = "title" content="super site de dingue">
+<meta name="description" content="Des recettes de dingues">
+
 <div class="container">
 
     <div class="row">
@@ -36,15 +40,7 @@
               <h4> Mon avis :</h4>
               <hr>
               <li class="d-flex  align-items-center">
-                <span class="badge badge-primary badge-pill">
-                  <% counter = 0 %>
-                  <% 5.times do %>
-                    <i class="fa <%= @recette.note > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-                    <% counter += 1 %>
-                  <% end %>
-                </span>
-                <span class="ml-2">sur 5
-                <span class="ml-2">- <%= @recette.commentaire %></span>
+                <span class="ml-2"><%=@recette.commentaire %></span>
               </li>
 
             </div>
@@ -152,6 +148,38 @@
             <h2><strong>Commentaires des copains</strong></h2>
         </div>
         <div class="card-body">
+
+
+          <div>
+             <% if @recette.reviews != "" %>
+
+               <% @recette.reviews.each do |i| %>
+                <div>
+               <% counter = 0 %>
+                  <% 5.times do %>
+                  <i class="fa <%= i.note > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                  <% counter += 1 %>
+
+               <% end %>
+                <i>par</i>
+                <strong><i class=""> <%= i.user.pseudo %></i></strong>
+
+                <i>:</i>
+                <i><%= i.commentaire  %></i>
+                     <hr>
+               </div>
+
+              <% end %>
+
+            <% end %>
+          </div>
+          <div>
+           <% if @recette.user != current_user  %>
+              <%= button_to "Déposer un commentaire", new_recette_review_path(@recette), :id => "open-contacts-dialog-btn",
+                  :class => "btn btn-outline-danger w-80", :method => :get %>
+              <% end %>
+          </div>
+
         </div>
 
         </div>

@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     # resources :whishlists, only: [:show, :new, :create]
     resources :reviews, only: [:index, :show, :new, :create]
   end
+  get 'pages/myrecettes'
 end

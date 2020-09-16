@@ -31,12 +31,22 @@ class RecettesController < ApplicationController
   end
 
   def edit
+    @recette = Recette.find(params[:id])
+
   end
 
   def update
+    @recette = Recette.find(params[:id])
+    @recette.update!(recettes_strong_params)
+
+    redirect_to recette_path(@recette)
   end
 
   def destroy
+    @recette = Recette.find(params[:id])
+    @recette.destroy!
+
+    redirect_to pages_myrecettes_path
   end
 
   private

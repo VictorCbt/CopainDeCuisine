@@ -1,2 +1,86 @@
-<h1>Recettes#edit</h1>
-<p>Find me in app/views/recettes/edit.html.erb</p>
+
+
+<div class="container">
+
+  <div class="row justify-content-center">
+       <br>
+      <h1 class='title-page-form pt-3 pb-3'>Modifier votre recette</h1>
+      <br>
+
+    <div class="col-md-8">
+
+<% choixunivers =['Asiatique',
+                  'Burger',
+                  'Casher',
+                  'Convivial',
+                  'Crêpes / Galettes',
+                  'Crustacés',
+                  'Dessert',
+                  'Enfants',
+                  'Epicés ',
+                  'Fromages',
+                  'Gâteau',
+                  'Gibier',
+                  'Glaces',
+                  'Gratins',
+                  'Healthy',
+                  'Junk food',
+                  'Légumes',
+                  'Omelettes',
+                  'Pains et viennoiseries ',
+                  'Pâtes',
+                  'Pizza',
+                  'Poissons et crustacés',
+                  'Poulet',
+                  'Quiche',
+                  'Salades',
+                  'Sandwich',
+                  'Sauce',
+                  'Sauces',
+                  'Smoothies',
+                  'Tarte',
+                  'Terrine',
+                  'Vegan ',
+                  'Viandes blanches',
+                  'Viandes rouges']
+
+
+  choixtypes =["Accompagnement","Entrée", "Plat", "Dessert"] %>
+
+
+
+      <%= simple_form_for @recette do |f| %>
+        <%= f.input :titre, label: 'Titre votre super recette' %>
+        <%= f.input :description, label: 'Décrire les étapes de votre recette, "comme ça, là.."(Lignac)', :input_html => { :cols => 5, :rows => 10 } %>
+        <%= f.input :lienUrl, label: 'Lien URL de la recette ?' %>
+
+        <%#= f.input :variante, label: 'avez-vous testé une variante ? "avec de la petite épautre par exemple, pour les mangeurs de graines"' %>
+        <%= f.input :astuce, label:'une super astuce à nous donner?' %>
+        <%= f.input :typeplat, label: "Type de plat", collection: choixtypes, as: :radio_buttons  %>
+        <%= f.input :univers, label: 'Choisissez un ou plusieurs Tag pour faciliter la recherche de votre recette', collection: choixunivers, as: :check_boxes, :multiple => true %>
+
+      <div class="d-flex spa">
+        <div class="pr-4">
+          <%= f.input :duree, placeholder:"En minutes", label: 'Temps de préparation' %>
+        </div>
+        <div class="pl-4">
+          <%= f.input :cuisson, label: 'Temps de cuisson (O cuisson = ne rien saisir)', placeholder:"En minutes" %>
+        </div>
+      </div>
+
+
+        <%= f.input :commentaire, label: 'Un commentaire général à apporter ?' %>
+
+        <%= f.input :difficulte, label: 'Difficulté', collection: ["1", "2", "3", "4", "5"], as: :radio_buttons %>
+        <%= f.input :photo, label: 'Une photo à joindre', as: :file %>
+           <br>
+        <%= f.button :submit, "Valider", class: 'btn btn-primary w-100' %>
+
+        <br>
+
+      <% end %>
+    </div>
+    <br>
+  </div>
+  <br>
+</div>

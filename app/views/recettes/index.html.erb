@@ -4,6 +4,7 @@
 <div class="container">
 
   <form >
+    <h3 class='title-page-form pt-3 pb-3'>Toutes les supers recettes</h3>
     <div class="form-group d-flex">
       <div class="w-100">
          <%= form_tag recettes_path, method: :get do %>
@@ -17,22 +18,31 @@
     </div>
   </form>
 
+<div class="card" style="width:300px">
+  <% @recettes.each do |r| %>
+  <img class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(r.photo.key)%>)">
+  <div class="card-body">
+    <h4 class="card-title"><%= r.titre  %></h4>
+    <p class="card-text">Some example text.</p>
+    <a href=""><%= link_to "Voir", recette_path(r), class: 'btn' %></a>
+  </div>
+  <% end %>
+</div>
+
+
+
 <div class="cards cards-text">
   <% @recettes.each do |r| %>
   <div class="card-category_new" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(r.photo.key) %>)">
     <div class="cards-text">
     <p><%= r.titre  %></p>
-    <a href=""><%= link_to "voir la recette", recette_path(r), class: 'btn btn-flat' %></a>
+    <a href=""><%= link_to "Voir", recette_path(r), class: 'btn' %></a>
     </div>
   </div>
    <%end %>
 </div>
-
-
-
-
-
-
-
-
 </div>
+
+
+
+

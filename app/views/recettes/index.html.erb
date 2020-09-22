@@ -18,29 +18,46 @@
     </div>
   </form>
 
-<div class="card" style="width:300px">
-  <% @recettes.each do |r| %>
-  <img class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(r.photo.key)%>)">
-  <div class="card-body">
-    <h4 class="card-title"><%= r.titre  %></h4>
-    <p class="card-text">Some example text.</p>
-    <a href=""><%= link_to "Voir", recette_path(r), class: 'btn' %></a>
-  </div>
-  <% end %>
-</div>
-
-
-
-<div class="cards cards-text">
-  <% @recettes.each do |r| %>
-  <div class="card-category_new" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(r.photo.key) %>)">
-    <div class="cards-text">
-    <p><%= r.titre  %></p>
-    <a href=""><%= link_to "Voir", recette_path(r), class: 'btn' %></a>
+  <div class="card" style="width:300px">
+    <% @recettes.each do |r| %>
+    <img class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))" src="<%= cl_image_path(r.photo.key)%>">
+    <div class="card-body">
+      <h4 class="title-page-form card-title"><%= r.titre  %></h4>
+      <p>difficulté :
+        <% counter = 0 %>
+        <% 5.times do %>
+        <i class="fa <%= r.difficulte > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+        <% counter += 1 %>
+        <% end %></p>
+        <p>Temps :  <%= r.duree + r.cuisson  %> <small>mins</small></p>
+      <a href=""><%= link_to "Voir", recette_path(r), class: 'btn btn-flat' %></a>
     </div>
+    <% end %>
   </div>
-   <%end %>
+
+    <% @recettes.each do |r| %>
+<div class="card row" style="width: 18rem;">
+  <img class="card-img-top" src="<%= cl_image_path(r.photo.key)%>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
 </div>
+<% end %>
+
+  <div class="cards cards-text">
+    <% @recettes.each do |r| %>
+    <div class="card-category_new" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(r.photo.key) %>)">
+      <div class="cards-text">
+        <p><%= r.titre  %></p>
+        <a href=""><%= link_to "Voir", recette_path(r), class: 'btn' %></a>
+      </div>
+    </div>
+      <p><%= r.titre  %></p>
+    <%end %>
+  </div>
+
 </div>
 
 

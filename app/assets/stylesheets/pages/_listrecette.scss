@@ -90,9 +90,29 @@
   z-index: 2;
   background: black;
   opacity: 0;
-
 }
+
 .card-link:hover {
   opacity: 0.1;
 }
 
+.recette-cards {
+  margin-bottom: 10px;
+}
+
+.card-img-top {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+}
+
+.form-control {
+  padding: 1.3rem 0.75rem;
+  border-radius: 5px;
+  border:1px solid #5ea7a1;
+}
+
+.card-body {
+  border-top: none !important;
+
+}

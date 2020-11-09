@@ -4,17 +4,26 @@
 <div class="container">
   <h1 class='title-page-form pt-3 pb-3'>Mes recettes à partager</h1>
   <div class="container">
-    <div class="cards cards-text">
-        <% current_user.recettes.each do |r| %>
-      <div class="card-category_new" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(r.photo.key) %>)">
-        <div class="cards-text">
-          <p><%= r.titre  %></p>
-          <a href="test"><%= link_to "Voir", recette_path(r), class: 'btn btn-flat' %></a>
-          <a href="test"><%= link_to "Editer", edit_recette_path(r), class: 'btn btn-flat'%></a>
-          <%= link_to "Supprimer", recette_path(r), class: 'btn btn-danger', method: :delete %>
-        </div>
+
+      <div class="row">
+        <% current_user.recettes.each  do |r| %>
+          <div class="col-12 col-md-6 col-lg-3 recette-cards">
+            <img class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))" src="<%= cl_image_path r.photo.key, crop: :fill %>">
+            <div class="card recette-card">
+                  <div class="card-body card-body-recette">
+                  <h3 class="title-page-form card-title mb-3"><%= r.titre  %></h4>
+
+                    <p><%= link_to "Voir", recette_path(r), class: 'btn btn-flat w-100' %></p>
+                    <p><%= link_to "Editer", edit_recette_path(r), class: 'btn btn-flat w-100'%></p>
+                    <p><%= link_to "Supprimer", recette_path(r), class: 'btn btn-warning w-100', method: :delete %></p>
+
+
+
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
-        <%end %>
-    </div>
+
   </div>
 </div>

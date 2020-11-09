@@ -13,9 +13,9 @@
           <%= text_field_tag :query,
             params[:query],
             class: "form-control form-style",
-            placeholder: "Recherche ta recette par nom ou par univers [Sauce, Pattes ..]"%>
+            placeholder: "Recherche ta recette par nom, par univers [Sauce, Pattes ..]             PRESS ENTRER"%>
       </div>
-      <div class="pl-2"><%= submit_tag "Rechercher", class: "btn btn-flat" %></div>
+      <div class="pl-2"><% submit_tag  %></div>
           <% end %>
     </div>
   </form>
@@ -28,15 +28,19 @@
         <img class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))" src="<%= cl_image_path r.photo.key, crop: :fill %>">
         <div class="card recette-card">
               <div class="card-body card-body-recette">
-              <h4 class="title-page-form card-title"><%= r.titre  %></h4>
-              <p>difficulté :
-                <% counter = 0 %>
-                <% 5.times do %>
-                <i class="fa <%= r.difficulte > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-                <% counter += 1 %>
-                <% end %></p>
-                <p>Temps :  <%= r.duree + r.cuisson  %> <small>mins</small></p>
-              <a href=""><%= link_to "Voir", recette_path(r), class: 'btn btn-flat' %></a>
+              <h4 class="title-page-form card-title mb-3"><%= r.titre  %></h4>
+              <div class="mb-4 test-p">
+
+                <p>Difficulté :
+                  <% counter = 0 %>
+                  <% 5.times do %>
+                  <i class="fa <%= r.difficulte > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                  <% counter += 1 %>
+                  <% end %></p>
+                <p>Temps :  <strong><%= r.duree + r.cuisson %> </strong><small>mins</small></p>
+
+              </div>
+              <a href=""><%= link_to "Voir", recette_path(r), class: 'btn btn-flat w-100' %></a>
 
           </div>
         </div>

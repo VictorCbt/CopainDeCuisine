@@ -20,13 +20,7 @@
               <hr>
               <p> <%= simple_format(@recette.description) %> </p>
           </div>
-          <% if @recette.lienUrl != "" %>
-            <div class="card-body">
-              <h4> Url :</h4>
-                <hr>
-                <a href="" class=""><%= @recette.lienUrl %></a></p>
-            </div>
-          <% end %>
+
           <% if @recette.astuce != "" %>
             <div class="card-body">
               <h4> Mes astuces</h4>
@@ -57,7 +51,7 @@
             <h4 style="text-align: center"><strong> Mon profil</strong></h4>
           </div>
           <div class="card-body">
-            <h5 style="text-align: center">Recette postée par <%= @recette.user.pseudo %> </h5>
+            <h5 style="text-align: center">Chef <strong><%= @recette.user.pseudo %></strong>   </h5>
           </div>
         </div>
 
@@ -104,7 +98,7 @@
           <div class="card-body">
             <div>
               <% @recette.ingredients.each do |i| %>
-              <h5><%= i.quantite  %><%= i.unite %> de <%= i.nom  %>  </h5>
+              <h5><%= i.quantite  %><%= i.unite %> - <%= i.nom  %>  </h5>
               <% end %>
             </div>
             <br>

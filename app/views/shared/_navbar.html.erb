@@ -15,16 +15,16 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", recettes_path, class: "nav-link" %>
+          <%= link_to "Liste des recettes", recettes_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Mes recettes", "#", class: "nav-link" %>
+          <%= link_to "Mes recettes", pages_myrecettes_path, class: "nav-link" %>
         </li>
          <li class="nav-item pr-5">
           <%= link_to "Ajouter une recette", new_recette_path, class: "nav-link" %>
         </li>
         <li class="nav-item p-2">
-          <strong> <small><%= current_user.pseudo %></small> </strong>
+          <strong> Bienvenue <%= current_user.pseudo %> </strong>
         </li>
 
         <li class="nav-item dropdown">

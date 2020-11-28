@@ -2,12 +2,17 @@
   <div class="d-flex">
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "cuisine.png"  %>
-
     <% end %>
 
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon">
+      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </span>
   </button>
   <div class="align-self-center"><%= image_tag "CopainsDeCuisine.png", :class => "logo"%></div>
 </div>
@@ -32,7 +37,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Action", "#", class: "dropdown-item" %>
             <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "Se deconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
 
@@ -40,7 +45,7 @@
 
 
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
         </li>
 
       <% end %>

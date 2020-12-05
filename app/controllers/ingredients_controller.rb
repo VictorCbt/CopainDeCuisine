@@ -20,6 +20,9 @@ class IngredientsController < ApplicationController
     else
       render "new"
     end
+
+
+
   end
 
   private

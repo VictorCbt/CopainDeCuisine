@@ -11,3 +11,4 @@ const loadDynamicBannerText = () => {
 }
 
 export { loadDynamicBannerText };
+

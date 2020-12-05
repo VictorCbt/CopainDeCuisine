@@ -10,25 +10,26 @@
 
 
      <%= simple_form_for [@recette, @ingredient] do |f| %>
-
+<p>Taper un ingrédient, puis saisir une quantité / unité</p>
       <div class="col-md-12 pl-0 pr-0">
-          <%= f.input :nom, label: "Taper un ingrédient, puis saisir une quantité / unité", collection: listeingredients %>
+          <%= f.input :nom, input_html: { class: 'select2'}, label: "Selectionnez un ingredient", collection: listeingredients %>
 
 
       </div>
 
       <div class="col-md-12 d-flex pl-0 pr-0">
        <div class="col-md-6 pl-0">
-          <%= f.input :quantite  %>
+          <%= f.input :quantite, label: "Quantité"  %>
        </div>
         <div class="col-md-6 pr-0">
-          <%= f.input :unite, label: "Unité : 1 Oeuf = 'unités(s)'", collection: ["mL", "g", "unité(s)", "cL", "L", "Cuillière(s) à café", "Cuillière(s) à soupe", "Verre(s)", "Tranche(s)"] %>
+
+          <%= f.input :unite, label: "Unité : 1 Oeuf = 'unités(s)'", collection: ["mL", "g", "unité(s)", "cL", "L", "Cuillière(s) à café", "Cuillière(s) à soupe", "Verre(s)", "Tranche(s)"], as: :radio_buttons %>
 
         </div>
       </div>
 
       <div class="col-md-12 pl-0 pr-0">
-          <%= f.button :submit, class: "btn btn-primary w-100" %>
+          <%= f.button :submit, class: "btn btn-primary w-100", label:"Ajouter l'ingrédient" %>
       </div>
       <% end %>
   </div>

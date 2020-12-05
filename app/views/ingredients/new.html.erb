@@ -10,7 +10,7 @@
 
 
      <%= simple_form_for [@recette, @ingredient] do |f| %>
-<p>Taper un ingrédient, puis saisir une quantité / unité</p>
+<p>Rechercher un ingrédient, puis saisir une quantité et une unité</p>
       <div class="col-md-12 pl-0 pr-0">
           <%= f.input :nom, input_html: { class: 'select2'}, label: "Selectionnez un ingredient", collection: listeingredients %>
 

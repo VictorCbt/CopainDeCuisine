@@ -6,30 +6,31 @@
 
   <h3 class="text-center">Ajouter un ingrédient à votre recette</h3>
   <br>
-  <div class="card-category-form w-50">
+  <div class="card-category-form">
 
 
      <%= simple_form_for [@recette, @ingredient] do |f| %>
-<p>Rechercher un ingrédient, puis saisir une quantité et une unité</p>
-      <div class="col-md-12 pl-0 pr-0">
+<h5>Recherchez un ingrédient, puis saisir une quantité et une unité</h5>
+<br>
+      <div class="col-md-12">
           <%= f.input :nom, input_html: { class: 'select2'}, label: "Selectionnez un ingredient", collection: listeingredients %>
 
 
       </div>
 
-      <div class="col-md-12 d-flex pl-0 pr-0">
-       <div class="col-md-6 pl-0">
+      <div class="col-md-12 d-flex">
+       <div class="col-md-6">
           <%= f.input :quantite, label: "Quantité"  %>
        </div>
-        <div class="col-md-6 pr-0">
+        <div class="col-md-6">
 
           <%= f.input :unite, label: "Unité : 1 Oeuf = 'unités(s)'", collection: ["mL", "g", "unité(s)", "cL", "L", "Cuillière(s) à café", "Cuillière(s) à soupe", "Verre(s)", "Tranche(s)"], as: :radio_buttons %>
 
         </div>
       </div>
 
-      <div class="col-md-12 pl-0 pr-0">
-          <%= f.button :submit, class: "btn btn-primary w-100", label:"Ajouter l'ingrédient" %>
+      <div class="col-md-12">
+          <%= f.button :submit, class: "btn btn-primary w-100" %>
       </div>
       <% end %>
   </div>
